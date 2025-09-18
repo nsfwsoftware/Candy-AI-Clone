@@ -1,5 +1,5 @@
 ## Candy AI Clone
-
+Check Full Demo at - https://tripleminds.co/white-label/candy-ai-clone/
 This repository hosts the source code and documentation for Candy AI Clone, a generative conversational AI model inspired by Candy AI. This clone replicates key functionality—chat, content generation, context awareness—while allowing extensibility, custom data, fine‑tuning, and deployment flexibility.
 
 ## Candy AI Features

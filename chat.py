@@ -1,4 +1,5 @@
 """
+Check Full Demo at - https://tripleminds.co/white-label/candy-ai-clone/
 chat.py
 Interactive CLI chatbot tester for Candy AI Clone.
 

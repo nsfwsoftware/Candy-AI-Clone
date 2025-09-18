@@ -1,4 +1,5 @@
 # ----------------------------
+Check Full Demo at - https://tripleminds.co/white-label/candy-ai-clone/
 # Candy AI Clone Chatbot (Developed by Triple Minds)
 # Python dependencies
 # ----------------------------
