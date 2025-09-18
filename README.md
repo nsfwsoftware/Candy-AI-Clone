@@ -1,2 +1,2 @@
 # Candy-AI-Clone
-Candy AI Clone : Candy ai clone with NSFW video generator, NSFW chatbot, AI Companion, voice chat and more. Demo availabel for testors.
+Candy ai clone with NSFW video generator, NSFW chatbot, AI Companion, voice chat and more. Demo availabel for testors.
