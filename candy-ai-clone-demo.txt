@@ -1,1 +1,84 @@
-Candy AI Clone Demo
+## Candy AI Clone
+
+This repository hosts the source code and documentation for Candy AI Clone, a generative conversational AI model inspired by Candy AI. This clone replicates key functionality—chat, content generation, context awareness—while allowing extensibility, custom data, fine‑tuning, and deployment flexibility.
+
+## Candy AI Features
+
+- Conversational QA: context‑aware responses, follow‑ups, memory of short‑term conversation.
+- Content / prompt generation: e.g. writing stories, summarization, code generation.
+- Customization: ability to inject user‑provided prompts or domain data.
+- Multi‑turn support: retains conversational context for N previous turns.
+- Safety / Filtering: profanity, disallowed content filters.
+- Optional: fallback / human in loop for edge cases.
+
+# Architecture
+┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│ Client (UI)  │ ←→  │ Backend API  │ ←→  │ Model Server │
+└──────┬───────┘     └──────┬───────┘     └──────┬───────┘
+       │                    │                    │
+       │                    │           ┌────────┴────────┐
+       │                    │           │ Storage / DB /   │
+       │                    │           │ Context Memory &  │
+       │                    │           │ Logs              │
+       │                    │           └───────────────────┘
+       │                    │
+       │                    │
+       │             ┌──────┴──────┐
+       │             │ Safety Module│ (optional moderation / filter)
+       │             └─────────────┘
+       │
+  UI: Web / Mobile
+
+
+- Client: Web/React (or mobile) interface for user input + rendering responses.
+- Backend/API: Serves requests from client; handles context, prompt engineering, rate limits, user sessions.
+- Model Server: Hosts the ML model(s) (can be open‑source LLM, e.g. GPT‑based, LLama, etc., or proprietary).
+- Database / Context Store: Stores conversation history, possibly cache, user meta data.
+- Safety / Filter Module: A component that filters or flags inappropriate content.
+
+
+##Tech Stack
+
+# Data & Training
+Data Collection
+
+Sources:
+
+- Public conversational datasets (e.g. OpenSubtitles, DailyDialog, Reddit threads, etc.)
+- Domain‑specific text (if building for specialized domain: manuals, docs, knowledgebases)
+- Possibly user‑provided data (after cleaning & consent)
+
+# Preprocessing:
+
+- Clean text: remove HTML tags, non‑UTF characters, excessive whitespace
+- Normalize: lowercasing (if model requires), tokenization
+- Remove undesirable content: profanity, personal data, disallowed content
+- Split into prompt/response pairs; possibly multi‑turn dialogues
+
+## Model Choice & Fine‑Tuning
+
+- Base Model: started from a publicly available LLM with good conversational properties (e.g. GPT‑2, GPT‑NeoX, LLaMA, or a recent open checkpoint).
+- Tokenizer: use compatible tokenizer (Byte‑Pair Encoding, Sentence Piece, etc.).
+
+## Fine‑tuning strategy:
+
+- Supervised fine‑tuning on dialogue pairs: input = (past N turns + new user message), output = next model response.
+- Possibly use reinforcement learning from human feedback (RLHF) step, if resources allow: collect human judgments, train reward model, use PPO / other policy optimization.
+- Regularization: label smoothing, dropout, mixed‑precision training to avoid overfitting.
+
+## Embeddings & Similarity Search
+
+To incorporate memory / context beyond immediate turns: build embeddings of past conversation turns (or knowledge base) using a sentence embedding model (e.g. Sentence‑Transformers).
+
+Use FAISS / Milvus to find nearest neighbor conversational context, to retrieve relevant examples or knowledge that help the model respond more coherently or factually.
+
+## Safety & Filtering
+
+- Pre‑filter training data to remove toxic or disallowed content.
+- Use a content moderation module (pre‑ or post‑ generation) to block or safe‑complete disallowed outputs.
+- Possibly add a fallback or filter when model confidence is low, or when content is uncertain.
+
+[![Buy Candy AI Clone Now](https://img.shields.io/badge/Buy%20Now-black)](https://tripleminds.co/white-label/candy-ai-clone/)
+[![Email](https://img.shields.io/badge/Email-red)](mailto:sales@tripleminds.co)
+[![Source Code](https://img.shields.io/badge/Source%20Code-gray)](https://github.com/nsfwcoders/candy-ai-clone/)
+[![Download](https://img.shields.io/badge/Download-gold)](https://tripleminds.co/white-label/candy-ai-clone/)
