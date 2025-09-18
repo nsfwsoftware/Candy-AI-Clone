@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "description": "Policy-safe starter intents for an adult-oriented (NSFW) chatbot. Avoid explicit content; focus on service, policy, and support flows.",
+    "brand": "Candy AI Clone by Triple Minds"
+  },
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hi",
+        "hello",
+        "hey",
+        "good morning",
+        "good evening",
+        "yo",
+        "what's up",
+        "hi there"
+      ],
+      "responses": [
+        "Hey! I’m your assistant for {{brand}}. How can I help today?",
+        "Hello! Need help with features, pricing, or safety policy?",
+        "Hi there! Tell me what you’re looking for and I’ll guide you."
+      ]
+    },
+    {
+      "tag": "age_check",
+      "patterns": [
+        "are you 18",
+        "age verification",
+        "verify age",
+        "do i need to be 18",
+        "minimum age",
+        "why do you ask for my age"
+      ],
+      "responses": [
+        "For safety and legal compliance, access requires confirming you are 18+ (or the age of majority in your region).",
+        "We ask for age confirmation to ensure adult-only access and keep the platform compliant with applicable laws."
+      ]
+    },
+    {
+      "tag": "consent_policy",
+      "patterns": [
+        "consent policy",
+        "rules about consent",
+        "boundaries",
+        "is consent required",
+        "what is your consent policy"
+      ],
+      "responses": [
+        "Consent and respect are mandatory here. We don’t allow content that depicts non-consensual activity, minors, harassment, or abuse.",
+        "Our platform enforces consent-first interactions and prohibits any content involving minors, coercion, exploitation, or illegal activity."
+      ]
+    },
+    {
+      "tag": "nsfw_scope",
+      "patterns": [
+        "what nsfw content is allowed",
+        "nsfw scope",
+        "what is permitted",
+        "what kind of content is okay",
+        "platform rules"
+      ],
+      "responses": [
+        "The platform supports adult conversation for users 18+ within strict policy limits. Illegal or harmful content, minors, and non-consensual themes are strictly prohibited.",
+        "We allow adult-oriented chat within guidelines. Content involving minors, exploitation, or real-world harm is not permitted."
+      ]
+    },
+    {
+      "tag": "services_overview",
+      "patterns": [
+        "what services do you offer",
+        "features",
+        "capabilities",
+        "what can you do",
+        "platform features"
+      ],
+      "responses": [
+        "Key features include: Character chat, safe-mode toggles, image prompts with filters, preferences & memory (opt-in), and a creator dashboard for custom characters.",
+        "We offer policy-safe adult chat, character libraries, prompt presets, and optional image prompting with moderation. Want details on any feature?"
+      ]
+    },
+    {
+      "tag": "image_generation_policy",
+      "patterns": [
+        "image generation rules",
+        "can i generate images",
+        "image policy",
+        "nsfw images allowed",
+        "what images are allowed"
+      ],
+      "responses": [
+        "Image prompts pass moderation before generation. No content involving minors, violence, exploitation, or illegal activity is allowed.",
+        "Yes, image prompts are supported with safeguards. If a prompt violates policy, we’ll ask you to adjust it."
+      ]
+    },
+    {
+      "tag": "roleplay_policy",
+      "patterns": [
+        "role play rules",
+        "can we roleplay",
+        "is roleplay allowed",
+        "rp policy",
+        "how to do roleplay"
+      ],
+      "responses": [
+        "Roleplay is allowed within policy. No minors, non-consent, or illegal content. You can set boundaries and safe words in settings.",
+        "You can roleplay with characters as long as it stays consensual, adult-only, and policy-compliant."
+      ]
+    },
+    {
+      "tag": "privacy_data",
+      "patterns": [
+        "do you save chats",
+        "privacy",
+        "gdpr",
+        "how is my data used",
+        "data policy",
+        "delete my data"
+      ],
+      "responses": [
+        "We store minimal data to run your account and improve service. You can request export or deletion anytime from Settings → Privacy.",
+        "Your chats may be anonymized for quality improvements unless you opt out. See Settings → Privacy for controls."
+      ]
+    },
+    {
+      "tag": "pricing",
+      "patterns": [
+        "pricing",
+        "cost",
+        "how much",
+        "plans",
+        "subscription price",
+        "what are your charges"
+      ],
+      "responses": [
+        "We offer Free, Plus, and Pro. Pro includes higher limits and premium models. Share your use case and I’ll suggest a plan.",
+        "Pricing varies by usage (messages, images). For a quote, tell me your monthly volume and needed features."
+      ]
+    },
+    {
+      "tag": "subscription_billing",
+      "patterns": [
+        "how billing works",
+        "billing cycle",
+        "invoice",
+        "upgrade plan",
+        "cancel subscription",
+        "refund policy"
+      ],
+      "responses": [
+        "Billing is monthly. You can upgrade/downgrade anytime from Billing → Manage. Refunds follow our policy; contact support with your invoice ID.",
+        "Invoices are issued monthly. To cancel, go to Billing → Manage Subscription. Need help? I can connect you to support."
+      ]
+    },
+    {
+      "tag": "safety_help",
+      "patterns": [
+        "something unsafe happened",
+        "report user",
+        "flag content",
+        "how to report",
+        "safety help"
+      ],
+      "responses": [
+        "Use the Report button on any message or image to flag it. Our team reviews reports quickly to keep the space safe.",
+        "You can report users or content from the chat menu. For urgent cases, please contact support with context and timestamps."
+      ]
+    },
+    {
+      "tag": "tech_support",
+      "patterns": [
+        "i need help",
+        "support",
+        "bug",
+        "not working",
+        "error",
+        "can't login"
+      ],
+      "responses": [
+        "Sorry about that! Tell me what’s broken (screen, steps, error text) and I’ll guide you. You can also open a ticket via Help → Support.",
+        "Let’s fix it. Share the exact steps to reproduce and any screenshots. I can suggest quick checks or escalate to the team."
+      ]
+    },
+    {
+      "tag": "integrations_api",
+      "patterns": [
+        "api",
+        "sdk",
+        "integrations",
+        "webhook",
+        "developer docs",
+        "how to integrate"
+      ],
+      "responses": [
+        "We support REST API and webhooks for events (messages, moderation). Ask for docs and I’ll share the endpoints and auth steps.",
+        "You can integrate via API keys from Developer → Tokens. I can outline a sample cURL or Node/Python snippet."
+      ]
+    },
+    {
+      "tag": "compliance",
+      "patterns": [
+        "legal",
+        "compliance",
+        "tos",
+        "terms",
+        "acceptable use",
+        "prohibited content"
+      ],
+      "responses": [
+        "We enforce strict adult-only, consent-first guidelines and ban illegal or harmful content. Review Terms → Acceptable Use.",
+        "Compliance includes age verification, moderation, and takedown processes. For specifics, see Terms and Safety pages."
+      ]
+    },
+    {
+      "tag": "contact_sales",
+      "patterns": [
+        "contact sales",
+        "enterprise",
+        "custom plan",
+        "bulk pricing",
+        "sales email"
+      ],
+      "responses": [
+        "I can connect you with sales for custom quotas, SSO, or on-prem options. Share your company, monthly volume, and timeline.",
+        "For enterprise, we support SLAs, priority support, and custom moderation. Want me to forward your details to sales?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye",
+        "goodbye",
+        "see you",
+        "quit",
+        "exit",
+        "thanks bye"
+      ],
+      "responses": [
+        "Thanks for visiting! If you need anything else, I’m here.",
+        "Take care! Come back anytime."
+      ]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [
+        "*"
+      ],
+      "responses": [
+        "I’m not fully sure about that. Could you rephrase or ask about features, pricing, or policy?",
+        "I didn’t get that—try asking about features, plans, or safety rules, and I’ll help."
+      ]
+    }
+  ]
+}

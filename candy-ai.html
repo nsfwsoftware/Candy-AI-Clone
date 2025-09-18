@@ -2,91 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Candy AI Clone: Developed by Triple Minds</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Candy AI Clone Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="logo">candy<span>.ai</span></div>
-    <nav>
-      <ul>
-        <li><i class="icon">🔍</i> Explore</li>
-        <li><i class="icon">💬</i> Chat</li>
-        <li><i class="icon">📂</i> Collection</li>
-        <li><i class="icon">🖼️</i> Generate Image</li>
-      </ul>
-    </nav>
-    <div class="extras">
-      <select>
-        <option>English</option>
-      </select>
-      <button>Discord</button>
-      <button>Help Center</button>
-      <button>Contact Us</button>
-      <button>Affiliate</button>
-    </div>
-    <footer>
-      <a href="#">Privacy Notice</a> • <a href="#">Terms of Service</a>
-    </footer>
-  </aside>
-
-  <!-- Main Content -->
-  <main class="content">
-    <!-- Top bar -->
-    <header class="topbar">
-      <nav class="categories">
-        <a href="#" class="active">👩 Girls</a>
-        <a href="#">🎭 Anime</a>
-        <a href="#">👨 Guys</a>
-      </nav>
-      <div class="auth-buttons">
-        <button class="create">Create Free Account</button>
-        <button class="login">Login</button>
-      </div>
+  <div class="chat-container">
+    <header>
+      <h1>Candy AI Clone</h1>
+      <p>Developed by Triple Minds</p>
     </header>
 
-    <!-- Banner -->
-    <section class="banner">
-      <div class="banner-text">
-        <h2>IMAGE GENERATOR</h2>
-        <p>Create the perfect image in seconds<br>Choose your setting, poses, and actions</p>
-        <button class="generate">Generate Now</button>
-      </div>
-    </section>
+    <div id="chat-box" class="chat-box"></div>
 
-    <!-- Characters -->
-    <section class="characters">
-      <h2><span>Candy AI</span> Characters</h2>
-      <div class="card-grid">
-        <div class="card">
-          <img src="https://via.placeholder.com/200x250" alt="Character 1">
-          <span class="badge">New</span>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/200x250" alt="Character 2">
-          <span class="badge">New</span>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/200x250" alt="Character 3">
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/200x250" alt="Character 4">
-        </div>
-      </div>
-    </section>
-  </main>
+    <div class="input-container">
+      <input type="text" id="user-input" placeholder="Type your message..." autofocus />
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
 
-  <!-- Script -->
   <script>
-    // Example: highlight active category
-    const categories = document.querySelectorAll('.categories a');
-    categories.forEach(link => {
-      link.addEventListener('click', () => {
-        categories.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-      });
+    const chatBox = document.getElementById("chat-box");
+    const userInput = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+
+    function appendMessage(sender, text) {
+      const div = document.createElement("div");
+      div.classList.add("msg", sender);
+      div.innerText = text;
+      chatBox.appendChild(div);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const text = userInput.value.trim();
+      if (!text) return;
+      appendMessage("user", text);
+      userInput.value = "";
+
+      try {
+        const res = await fetch("/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text })
+        });
+        const data = await res.json();
+        appendMessage("bot", data.reply || "Error: No response");
+      } catch (err) {
+        appendMessage("bot", "⚠️ Error connecting to server");
+      }
+    }
+
+    sendBtn.addEventListener("click", sendMessage);
+    userInput.addEventListener("keypress", e => {
+      if (e.key === "Enter") sendMessage();
     });
   </script>
 </body>

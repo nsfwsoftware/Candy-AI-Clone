@@ -1,0 +1,27 @@
+# ----------------------------
+# Candy AI Clone Chatbot (Developed by Triple Minds)
+# Python dependencies
+# ----------------------------
+
+# Core framework
+fastapi==0.110.0
+uvicorn==0.29.0
+
+# Machine Learning & NLP
+scikit-learn==1.4.2
+numpy==1.26.4
+scipy==1.13.0
+joblib==1.3.2
+
+# Text processing
+nltk==3.8.1
+
+# Validation & settings
+pydantic==2.6.4
+
+# Optional: data handling / utils
+pandas==2.2.1
+
+# Development & testing
+pytest==8.1.1
+httpx==0.27.0
